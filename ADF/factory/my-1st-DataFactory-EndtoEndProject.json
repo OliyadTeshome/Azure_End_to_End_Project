@@ -1,0 +1,9 @@
+{
+	"name": "my-1st-DataFactory-EndtoEndProject",
+	"location": "israelcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7d5888bb-6326-4962-a8f6-2801b5a92563",
+		"tenantId": "8ae4348b-d4f7-42ee-8f8c-8270b2b78b9a"
+	}
+}
