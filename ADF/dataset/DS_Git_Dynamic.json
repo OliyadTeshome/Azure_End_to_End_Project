@@ -1,0 +1,30 @@
+{
+	"name": "DS_Git_Dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"P_Rel_url": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().P_Rel_url",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

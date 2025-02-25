@@ -1,0 +1,38 @@
+{
+	"name": "DS_Sink_Dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorageDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"P_sInk_folder": {
+				"type": "String"
+			},
+			"P_sink_name": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().P_sink_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().P_sInk_folder",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
