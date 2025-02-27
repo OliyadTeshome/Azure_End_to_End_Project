@@ -1,0 +1,17 @@
+{
+	"name": "Create Views Gold",
+	"properties": {
+		"content": {
+			"query": "--------------------------\n-- CREATE VIEW Calendar --\n--------------------------\nCREATE VIEW calendar\nAS\nSELECT \n    *\nFROM\n    OPENROWSET\n    (\n        BULK 'https://my1stendtoendproject.blob.core.windows.net/silver/AdventureWorks_Calendar/',\n        FORMAT = 'PARQUET'\n    ) AS query1 ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "My1stDatabase",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
