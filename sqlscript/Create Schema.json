@@ -2,7 +2,7 @@
 	"name": "Create Schema",
 	"properties": {
 		"content": {
-			"query": "",
+			"query": "CREATE SCHEMA gold;",
 			"metadata": {
 				"language": "sql"
 			},
