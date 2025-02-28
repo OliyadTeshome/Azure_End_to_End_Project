@@ -94,6 +94,26 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('workspaceName'), '/Create External Table')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "CREATE DATABASE SCOPED CREDENTIAL cred_oly\nWITH\n    IDENTITY = 'MANAGED IDENTITY'\n\nCREATE EXTERNAL DATA SOURCE source_silver\nWITH\n(\n    LOCATION = 'https://my1stendtoendproject.blob.core.windows.net/silver',\n    CREDENTIAL = cred_oly\n)\n\nCREATE EXTERNAL DATA SOURCE source_gold\nWITH\n(\n    LOCATION = 'https://my1stendtoendproject.blob.core.windows.net/gold',\n    CREDENTIAL = cred_oly\n)\n\nCREATE EXTERNAL FILE FORMAT format_parquet\nWITH\n(\n    FORMAT_TYPE = PARQUET,\n    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'\n)\n\n-----------------------------------------------------\n-- CREATE EXTERNAL TABLE called EXTSALES for sales---\n-----------------------------------------------------\n\nCREATE EXTERNAL TABLE gold.extsales\nWITH\n(\n    LOCATION = 'extsales',\n    DATA_SOURCE = source_gold,\n    FILE_FORMAT = format_parquet\n)\nAS\nSELECT * FROM gold.sales\n-----------------------------------------------------\n\n\n\n\n\n\n\n\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "My1stDatabase",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('workspaceName'), '/Create Schema')]",
 			"type": "Microsoft.Synapse/workspaces/sqlscripts",
 			"apiVersion": "2019-06-01-preview",
