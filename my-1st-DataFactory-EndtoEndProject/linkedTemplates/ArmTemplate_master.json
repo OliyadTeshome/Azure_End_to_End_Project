@@ -7,9 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "my-1st-DataFactory-EndtoEndProject"
 		},
+		"AzureDataLakeStorage_for_metadata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage_for_metadata'"
+		},
 		"StorageDataLake_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'StorageDataLake'"
+		},
+		"AzureDataLakeStorage_for_metadata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://my1stendtoendproject.dfs.core.windows.net/"
 		},
 		"HttpLinkedService_properties_typeProperties_url": {
 			"type": "string",
@@ -46,8 +54,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureDataLakeStorage_for_metadata_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage_for_metadata_accountKey')]"
+					},
 					"StorageDataLake_accountKey": {
 						"value": "[parameters('StorageDataLake_accountKey')]"
+					},
+					"AzureDataLakeStorage_for_metadata_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage_for_metadata_properties_typeProperties_url')]"
 					},
 					"HttpLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('HttpLinkedService_properties_typeProperties_url')]"

@@ -5,8 +5,14 @@
 		"factoryName": {
 			"value": "my-1st-DataFactory-EndtoEndProject"
 		},
+		"AzureDataLakeStorage_for_metadata_accountKey": {
+			"value": ""
+		},
 		"StorageDataLake_accountKey": {
 			"value": ""
+		},
+		"AzureDataLakeStorage_for_metadata_properties_typeProperties_url": {
+			"value": "https://my1stendtoendproject.dfs.core.windows.net/"
 		},
 		"HttpLinkedService_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com"
